@@ -5,6 +5,7 @@ import (
 	"log"
 	"mysql_with_go/database"
 	"mysql_with_go/model"
+	"strconv"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -40,8 +41,15 @@ func GetAllCustomer(c *fiber.Ctx) error {
 }
 
 func InsertCustomer(c *fiber.Ctx) error {
+	fmt.Println(string(c.Request().URI().QueryString()))
 
-	sql := "INSERT INTO customer VALUES( 0,'saas', 01091944605)"
+	customer2 := new(model.Customers)
+	if err := c.QueryParser(customer2); err != nil {
+		return err
+	}
+
+	fmt.Printf("%v %v %v\n", customer2, customer2.Fullname, customer2.Mobile)
+	sql := "INSERT INTO customer VALUES ( 0," + customer2.Fullname + "," + customer2.Mobile + ")"
 	fmt.Printf("%v\n", sql)
 
 	res, err := database.Database().Exec(sql)
@@ -56,6 +64,30 @@ func InsertCustomer(c *fiber.Ctx) error {
 		log.Fatal(err)
 	}
 	fmt.Printf("Last is %v", lastId)
-	return c.SendString("insert Successfully")
+
+	selectSql := "Select * from customer where id=" + strconv.FormatInt(lastId, 10)
+	selectData, err := database.Database().Query(selectSql)
+
+	if err != nil {
+		log.Fatal(err)
+
+	}
+	var customer model.Customers
+
+	for selectData.Next() {
+		err := selectData.Scan(&customer.Id, &customer.Fullname, &customer.Mobile)
+
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
+
+	data := &model.InsertData{
+		StatusCode: 200,
+		Message:    "Successfully insert data on " + strconv.FormatInt(lastId, 10),
+		Data:       customer,
+	}
+
+	return c.JSON(data)
 
 }

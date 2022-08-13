@@ -13,7 +13,7 @@ func main() {
 
 	app.Get(routes.GetAllCustomer, controller.GetAllCustomer)
 
-	app.Get(routes.InsertCustomer, controller.InsertCustomer)
+	app.Post(routes.InsertCustomer, controller.InsertCustomer)
 
 	app.Listen(":3000")
 
