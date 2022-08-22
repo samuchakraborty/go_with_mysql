@@ -8,7 +8,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-func Database() *sql.DB { 
+func Database() *sql.DB {
 
 	db, err := sql.Open("mysql", "root:@(127.0.0.1:3306)/stamasoft_lmem")
 	// defer db.Close()
@@ -26,7 +26,6 @@ func Database() *sql.DB {
 	}
 
 	fmt.Println(version)
-
 
 	return db
 

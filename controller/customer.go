@@ -12,7 +12,7 @@ import (
 
 func GetAllCustomer(c *fiber.Ctx) error {
 
-	rows, err := database.Database().Query("Select * from customer")
+	rows, err := database.Database().Query("Select * from customers")
 
 	if err != nil {
 		log.Fatal(err)
@@ -22,7 +22,7 @@ func GetAllCustomer(c *fiber.Ctx) error {
 
 	for rows.Next() {
 
-		err := rows.Scan(&customer.Id, &customer.Fullname, &customer.Mobile)
+		err := rows.Scan(&customer.Id, &customer.Name, &customer.Mobile)
 
 		if err != nil {
 			log.Fatal(err)
@@ -48,12 +48,13 @@ func InsertCustomer(c *fiber.Ctx) error {
 		return err
 	}
 
-	fmt.Printf("%v %v %v\n", customer2, customer2.Fullname, customer2.Mobile)
-	sql := "INSERT INTO customer VALUES ( 0," + customer2.Fullname + "," + customer2.Mobile + ")"
-	fmt.Printf("%v\n", sql)
+	insForm, err := database.Database().Prepare("INSERT INTO customers (name, mobile) VALUES(?,?)")
+	if err != nil {
+		panic(err.Error())
+	}
+	res, err := insForm.Exec(customer2.Name, customer2.Mobile)
 
-	res, err := database.Database().Exec(sql)
-
+	defer database.Database().Close()
 	if err != nil {
 		panic(err.Error())
 	}
@@ -64,8 +65,24 @@ func InsertCustomer(c *fiber.Ctx) error {
 		log.Fatal(err)
 	}
 	fmt.Printf("Last is %v", lastId)
+	data := getCustomerByID(lastId)
 
-	selectSql := "Select * from customer where id=" + strconv.FormatInt(lastId, 10)
+	return c.JSON(data)
+
+}
+
+func GetCustomerByID(c *fiber.Ctx) error {
+
+	result := c.Params("id")
+	i, _ := strconv.ParseInt(result, 10, 64)
+	data := getCustomerByID(i)
+
+	return c.JSON(data)
+}
+
+func getCustomerByID(id int64) *model.InsertData {
+
+	selectSql := "Select * from customers where id=" + strconv.FormatInt(id, 10)
 	selectData, err := database.Database().Query(selectSql)
 
 	if err != nil {
@@ -75,7 +92,7 @@ func InsertCustomer(c *fiber.Ctx) error {
 	var customer model.Customers
 
 	for selectData.Next() {
-		err := selectData.Scan(&customer.Id, &customer.Fullname, &customer.Mobile)
+		err := selectData.Scan(&customer.Id, &customer.Name, &customer.Mobile)
 
 		if err != nil {
 			log.Fatal(err)
@@ -84,10 +101,10 @@ func InsertCustomer(c *fiber.Ctx) error {
 
 	data := &model.InsertData{
 		StatusCode: 200,
-		Message:    "Successfully insert data on " + strconv.FormatInt(lastId, 10),
+		Message:    "Successfully insert data on " + strconv.FormatInt(id, 10),
 		Data:       customer,
 	}
 
-	return c.JSON(data)
+	return data
 
 }
