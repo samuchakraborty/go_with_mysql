@@ -4,3 +4,9 @@
 
 go.mod
 go.sum
+.DS_Store
+/tmp/
+
+tmp/build-errors.log
+
+_debug_bin

@@ -1,32 +1,27 @@
 package database
 
 import (
-	"database/sql"
-	"fmt"
 	"log"
 
-	_ "github.com/go-sql-driver/mysql"
+	"gorm.io/driver/mysql"
+	"gorm.io/gorm"
 )
 
-func Database() *sql.DB {
+func Database() *gorm.DB {
 
-	db, err := sql.Open("mysql", "root:@(127.0.0.1:3306)/stamasoft_lmem")
-	// defer db.Close()
+	// db, err := sql.Open("mysql", "root:@(127.0.0.1:3306)/onlineShopping")
 
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+
+	// return db
+
+	dsn := "root:@tcp(127.0.0.1:3306)/onlineShopping?charset=utf8mb4&parseTime=True&loc=Local"
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal(err.Error())
 	}
-
-	var version string
-
-	err2 := db.QueryRow("SELECT VERSION()").Scan(&version)
-
-	if err2 != nil {
-		log.Fatal(err2)
-	}
-
-	fmt.Println(version)
 
 	return db
-
 }

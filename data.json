@@ -1,0 +1,175 @@
+{
+    "ms": "",
+    "data": [
+        {
+            "examSetupID": 52,
+            "examType": "Mid Term Examination",
+            "subjects": [
+                {
+                    "subjecId": 1122,
+                    "subjectName": "Islamiat",
+                    "examDetails": [
+                        {
+                            "examDetailId": 0,
+                            "schoolId": 0,
+                            "examTypeId": 52,
+                            "examDate": "2022-06-21T00:00:00",
+                            "examTitle": "Islamiat (Mid Term exam)",
+                            "classID": 0,
+                            "sectionID": 0,
+                            "subjectId": 0,
+                            "examSyllabus": "",
+                            "marks": 100,
+                            "Getmarks": 90,
+                            "examVenue": "",
+                            "examStart": "9:30AM",
+                            "examEnd": "11:30AM",
+                            "entryBy": null,
+                            "entryDate": null,
+                            "updatedby": null,
+                            "updatedDate": null,
+                            "isActive": 0
+                        }
+                    ],
+                    "testDetails": [
+                        {
+                            "taskId": 3537,
+                            "taskTypeName": "Home Work",
+                            "subjecId": 1122,
+                            "subjectName": "Islamiat",
+                            "teacherName": "Suraiya Jahan ",
+                            "taskDetails": "Eng. Number- Do your extra copy.         Islamiat- Q/A  6. G/K  Q/A  -7.         Rhymes - Red red go to bed.",
+                            "sectionId": 2095,
+                            "testExamResults": [
+                                {
+                                    "taskNumber": "test-123",
+                                    "fullMarks": 20,
+                                    "gpa": 0.00,
+                                    "testExamResultPublished": 0,
+                                    "examSession": null,
+                                    "resultDate": "2022-08-01T00:00:00",
+                                    "getMarks": "10",
+                                    "studentId": "2022124",
+                                    "remarks": null
+                                }
+                            ]
+                        },
+                        {
+                            "taskId": 3537,
+                            "taskTypeName": "Home Work",
+                            "subjecId": 1122,
+                            "subjectName": "Islamiat",
+                            "teacherName": "Suraiya Jahan ",
+                            "taskDetails": "Eng. Number- Do your extra copy.         Islamiat- Q/A  6. G/K  Q/A  -7.         Rhymes - Red red go to bed.",
+                            "sectionId": 2095,
+                            "testExamResults": [
+                                {
+                                    "taskNumber": "test-123",
+                                    "fullMarks": 20,
+                                    "gpa": 0.00,
+                                    "testExamResultPublished": 0,
+                                    "examSession": null,
+                                    "resultDate": "2022-08-01T00:00:00",
+                                    "getMarks": "10",
+                                    "studentId": "2022124",
+                                    "remarks": null
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "subjecId": 1127,
+                    "subjectName": "Drawing",
+                    "examDetails": [],
+                    "testDetails": []
+                }
+            ]
+        },
+        {
+            "examSetupID": 52,
+            "examType": "Final Term Examination",
+            "subjects": [
+                {
+                    "subjecId": 1122,
+                    "subjectName": "Islamiat",
+                    "examDetails": [
+                        {
+                            "examDetailId": 0,
+                            "schoolId": 0,
+                            "examTypeId": 52,
+                            "examDate": "2022-06-21T00:00:00",
+                            "examTitle": "Islamiat (Mid Term exam)",
+                            "classID": 0,
+                            "sectionID": 0,
+                            "subjectId": 0,
+                            "examSyllabus": "",
+                            "marks": 100,
+                            "Getmarks": 90,
+                            "examVenue": "",
+                            "examStart": "9:30AM",
+                            "examEnd": "11:30AM",
+                            "entryBy": null,
+                            "entryDate": null,
+                            "updatedby": null,
+                            "updatedDate": null,
+                            "isActive": 0
+                        }
+                    ],
+                    "testDetails": [
+                        {
+                            "taskId": 3537,
+                            "taskTypeName": "Home Work",
+                            "subjecId": 1122,
+                            "subjectName": "Islamiat",
+                            "teacherName": "Suraiya Jahan ",
+                            "taskDetails": "Eng. Number- Do your extra copy.         Islamiat- Q/A  6. G/K  Q/A  -7.         Rhymes - Red red go to bed.",
+                            "sectionId": 2095,
+                            "testExamResults": [
+                                {
+                                    "taskNumber": "test-123",
+                                    "fullMarks": 20,
+                                    "gpa": 0.00,
+                                    "testExamResultPublished": 0,
+                                    "examSession": null,
+                                    "resultDate": "2022-08-01T00:00:00",
+                                    "getMarks": "10",
+                                    "studentId": "2022124",
+                                    "remarks": null
+                                }
+                            ]
+                        },
+                        {
+                            "taskId": 3537,
+                            "taskTypeName": "Home Work",
+                            "subjecId": 1122,
+                            "subjectName": "Islamiat",
+                            "teacherName": "Suraiya Jahan ",
+                            "taskDetails": "Eng. Number- Do your extra copy.         Islamiat- Q/A  6. G/K  Q/A  -7.         Rhymes - Red red go to bed.",
+                            "sectionId": 2095,
+                            "testExamResults": [
+                                {
+                                    "taskNumber": "test-123",
+                                    "fullMarks": 20,
+                                    "gpa": 0.00,
+                                    "testExamResultPublished": 0,
+                                    "examSession": null,
+                                    "resultDate": "2022-08-01T00:00:00",
+                                    "getMarks": "10",
+                                    "studentId": "2022124",
+                                    "remarks": null
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "subjecId": 1127,
+                    "subjectName": "Drawing",
+                    "examDetails": [],
+                    "testDetails": []
+                }
+            ]
+        }
+    ]
+}
