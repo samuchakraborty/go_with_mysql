@@ -57,6 +57,6 @@ type User struct {
 
 type Company struct {
 	ID             int    `gorm:"primaryKey, autoIncrement" json:"id" query:"id" form:"id"`
-	CompanyName    string `json:"companyName"`
-	CompanyAddress string `json:"companyAddress"`
+	CompanyName    string `gorm:"unique" json:"companyName"`
+	CompanyAddress string `gorm:"unique" json:"companyAddress"`
 }

@@ -9,3 +9,4 @@ var UpDateCustomerById = "/customers"
 
 var GetAllCustomerByPaginated = "/getAllCustomers"
 
+var AddCompany = "/addCompany"
